@@ -37,3 +37,6 @@ jobs:
               docker run -d --name cicd-pipeline-container -p 8000:8000 cicd-pipeline-app
               sleep 5
               curl http://localhost:8000/health
+
+      - name: Stop Docker Container
+        run : docker rm -f cicd-pipeline-container
