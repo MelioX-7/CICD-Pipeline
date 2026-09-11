@@ -10,3 +10,10 @@ def test_health():
     assert response.status_code == 200
     assert response.json() == {"status": "healthy"}
 
+def test_root():
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "message": "CI/CD Pipeline Project is running!"
+    }
