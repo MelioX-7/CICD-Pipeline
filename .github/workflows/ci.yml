@@ -31,3 +31,9 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t cicd-pipeline-app .
+
+      - name: Build Docker Contanier
+        run : |
+              docker run -d --name cicd-pipeline-container -p 8000:8000 cicd-pipeline-app
+              sleep 5
+              curl http://localhost:8000/health
