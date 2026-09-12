@@ -58,7 +58,7 @@ jobs:
       - name: Push Docker image
         run: |
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          docker push ghcr.io/$OWNER/cicd-pipeline-app:latest
+          docker push ghcr.io/$OWNER/cicd-pipeline-app:${{ github.sha }}
   deploy:
     needs: test
     runs-on: self-hosted
