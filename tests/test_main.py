@@ -15,5 +15,5 @@ def test_root():
 
     assert response.status_code == 200
     assert response.json() == {
-        "message": "CI/CD Pipeline Project is running!"
+        "message": "CI/CD Pipeline Project v1.0.2 is running!"
     }
