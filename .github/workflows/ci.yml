@@ -65,4 +65,7 @@ jobs:
 
     steps:
       - name: Pull Docker image
-        run: docker pull ghcr.io/meliox-7/cicd-pipeline-app:latest
+        run: |
+          docker pull ghcr.io/meliox-7/cicd-pipeline-app:latest
+          docker rm -f cicd-pipeline-container || true
+          docker run -d --name cicd-pipeline-container -p 8000:8000 ghcr.io/meliox-7/cicd-pipeline-app:latest
