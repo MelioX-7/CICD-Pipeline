@@ -69,3 +69,8 @@ jobs:
           docker pull ghcr.io/meliox-7/cicd-pipeline-app:latest
           docker rm -f cicd-pipeline-container || true
           docker run -d --name cicd-pipeline-container -p 8000:8000 ghcr.io/meliox-7/cicd-pipeline-app:latest
+
+      - name: Check deployed application
+        run: |
+          sleep 5
+          curl --fail http://localhost:8000/health
