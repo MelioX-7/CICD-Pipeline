@@ -54,7 +54,7 @@ jobs:
         run: |
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           IMAGE="ghcr.io/$OWNER/cicd-pipeline-app"
-          TAG=$"{{ github.sha }}"
+          TAG="${{ github.sha }}"
 
           docker tag cicd-pipeline-app:latest "$IMAGE:$TAG"
 
@@ -63,7 +63,7 @@ jobs:
         run: |
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           IMAGE="ghcr.io/$OWNER/cicd-pipeline-app"
-          TAG=$"{{ github.sha }}"
+          TAG="${{ github.sha }}"
 
           docker push cicd-pipeline-app:latest "$IMAGE:$TAG"
 
