@@ -48,3 +48,11 @@ jobs:
            registry: ghcr.io
            username: ${{ github.actor }}
            password: ${{ secrets.GITHUB_TOKEN }}
+
+
+     - name: Tag Docker Image
+       run: docker tag cicd-pipeline-app ghcr.io/${{ github.respository_owner }}/cicd-pipeline-app:latest
+
+
+     - name: Push Docker image
+       run: docker push ghcr.io/${{ github.repository_owner }}/cicd-pipeline-app:latest
