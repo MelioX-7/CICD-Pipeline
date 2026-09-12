@@ -54,7 +54,7 @@ jobs:
         run: |
           OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           docker tag cicd-pipeline-app:latest ghcr.io/$OWNER/cicd-pipeline-app:${{ github.sha }}
-          docker tag cicd-pipeline-app:latest ghcr.io/$OWNER/cicd-pipeline-app:$latest
+          docker tag cicd-pipeline-app:latest ghcr.io/$OWNER/cicd-pipeline-app:latest
 
       - name: Check Docker Image
         run: docker images
